@@ -39,11 +39,12 @@ def main(argv):
 
         selection = m200s>1.e14
 
-        print "Loading fits file ", i, " with ", len(xcens[selection]), " clusters ..."
+        print "Loading fits file ", i, "with ", len(xcens[selection]), " clusters ..."
         hd = pyfits.open(imgFile)
 
         bigMap = hd[0].data
         bigY,bigX = bigMap.shape
+        print "Map area ", bigX*bigY*pixScaleArcmin*pixScaleArcmin/60./60. , " sq. deg."
 
 
         for xcen,ycen,m200 in zip(xcens[selection],ycens[selection],m200s[selection]):
